@@ -5,7 +5,6 @@ console.log('Задание 6');
 Задание 6
 Напиши скрипт который просит посетителя ввести число в prompt до тех пор, 
 пока посетитель на нажмет Cancel и каждый раз добавляет введенное значение к общей сумме.
-
 При загрузке страницы пользователю предлагается в prompt ввести число.
 Ввод добавляется к значению переменной total.
 Операция ввода числа продолжается до тех пор, пока пользователь не нажмет кнопку Cancel
@@ -16,7 +15,6 @@ console.log('Задание 6');
 символов, не нужно.Если хочешь, в случае некорректного ввода, показывай alert с текстом 
 'Было введено не число, попробуйте еще раз', при этом результат prompt плюсовать к общей
 сумме не нужно, после чего снова пользователю предлагается ввести число в prompt.
-
 let input;
 let total = 0;
 */
@@ -24,6 +22,7 @@ let total = 0;
 const PRINT = 'Введите число';
 let message;
 let inputUser;
+let input;
 let total = 0;
 
 do {
@@ -33,9 +32,9 @@ do {
     alert(message);
     break;
   }
-  inputUser = Number.parseInt(inputUser, 10);
-  if (inputUser === Number(inputUser)) {
-    total += inputUser;
+  input = Number.parseInt(inputUser, 10);
+  if (input === Number(input)) {
+    total += input;
   } else {
     message = 'Было введено не число, попробуйте еще раз';
     alert(message);
