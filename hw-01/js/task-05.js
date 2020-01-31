@@ -23,50 +23,50 @@ alert сообщение 'В вашей стране доставка не до�
    - Индия - 80 кредитов
 */
 
-const userChoice;
-const userChoiceLC;
-let message;
-const China = 'Китай';
-const Chile = 'Чили';
-const Australia = 'Австралия';
-const Jamaica = 'Ямайка';
-const India = 'Индия';
+const PRINT_COUNTRY =
+  'Напишите название страны в которую нужно доставить товар';
+const CANCEL_BY_USER = 'Отменено пользователем!';
+const NOT_DELIVERY = 'В вашей стране доставка не доступна';
+const CHINA = 'Китай';
+const CHILE = 'Чили';
+const AUSTRALIA = 'Австралия';
+const INDIA = 'Индия';
+const JAMAICA = 'Ямайка';
 
-const priceChina = 100;
-const priceChile = 250;
-const priceAustralia = 170;
-const priceJamaica = 120;
-const priceIndia = 80;
+let message = prompt(PRINT_COUNTRY);
+let priсe = 0;
+let countryName;
 
-userChoice = prompt('Напишыте страну доставки товара: Китай Чили Австралия Индия Ямайка');
-userChoiceLC = userChoice.toLowerCase(userChoice);
+if (message === null) {
+  message = CANCEL_BY_USER;
+} else {
+  countryName = message[0].toUpperCase() + message.slice(1).toLowerCase();
 
-switch (userChoiceLC) {
-  case 'китай':
-    message = `Доставка в ${China} будет стоить ${priceChina} кредитов`;
-    break;
-
-  case 'чили':
-    message = `Доставка в ${Chile} будет стоить ${priceChile} кредитов`;
-    break;
-
-  case 'австралия':
-    message = `Доставка в ${Australia} будет стоить ${priceAustralia} кредитов`;
-    break;
-
-  case 'ямайка':
-    message = `Доставка в ${Jamaica} будет стоить ${priceJamaica} кредитов`;
-    break;
-
-  case 'индия':
-    message = `Доставка в ${India} будет стоить ${priceIndia} кредитов`;
-    break;
-
-  default:
-    message = 'В вашей стране доставка не доступна';
-    break;
+  switch (countryName) {
+    case CHINA:
+      priсe = 100;
+      break;
+    case CHILE:
+      priсe = 250;
+      break;
+    case AUSTRALIA:
+      priсe = 170;
+      break;
+    case JAMAICA:
+      priсe = 120;
+      break;
+    case INDIA:
+      priсe = 80;
+      break;
+    default:
+      message = NOT_DELIVERY;
+  }
 }
 
+if (priсe > 0) {
+  const PRICE_DELIVERY = `Доставка в ${countryName} будет стоить ${priсe} кредитов`;
+  message = PRICE_DELIVERY;
+}
 alert(message);
 
 console.log('Задание 5 END');

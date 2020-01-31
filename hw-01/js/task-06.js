@@ -21,23 +21,24 @@ let input;
 let total = 0;
 */
 
-let input;
+const PRINT = 'Введите число';
+let message;
+let inputUser;
 let total = 0;
 
 do {
-  input = prompt('Введите число');
-  if (input === null) {
-    alert(`Общая сума чисел равна ${total}`);
+  inputUser = prompt(PRINT);
+  if (inputUser === null) {
+    message = `Общая сума чисел равна ${total}`;
+    alert(message);
   }
-
-  input = Number.parseInt(input, 10);
-  while (Number.isNaN(input)) {
-    alert('Было введено не число, попробуйте еще раз');
-    input = prompt('Введите число');
-    input = Number.parseInt(input, 10);
+  inputUser = Number.parseInt(inputUser, 10);
+  if (inputUser === Number(inputUser)) {
+    total += inputUser;
+  } else {
+    message = 'Было введено не число, попробуйте еще раз';
+    alert(message);
   }
-
-  total += input;
-} while (input !== null);
+} while (inputUser !== null);
 
 console.log('Задание 6 END');
