@@ -14,6 +14,7 @@ console.log('Задание 6');
 const PRINT = 'Введите число';
 let message;
 let inputUser;
+let input;
 let total = 0;
 const numbers = [];
 
@@ -27,9 +28,9 @@ do {
     alert(message);
     break;
   }
-  inputUser = Number.parseInt(inputUser, 10);
-  if (inputUser === Number(inputUser)) {
-    numbers.push(inputUser);
+  input = Number.parseInt(inputUser, 10);
+  if (input === Number(input)) {
+    numbers.push(input);
   } else {
     message = 'Было введено не число, попробуйте еще раз';
     alert(message);
