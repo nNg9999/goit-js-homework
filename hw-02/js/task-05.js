@@ -1,0 +1,35 @@
+'use strict';
+
+console.log('Задание 5');
+/*
+Напиши функцию checkForSpam(message), принимающую 1 параметр message - строку. Функция проверяет ее на содержание слов spam и sale. Если нашли зарещенное слово то функция возвращает true, если запрещенных слов нет функция возвращает false. Слова в строке могут быть в произвольном регистре.
+*/
+// eslint-disable-next-line func-names
+const checkForSpam = function(message) {
+  const toLowerCaseMessage = message.toLowerCase();
+  const splitMessage = toLowerCaseMessage.split(' ');
+
+  const checkWordsSpam = '[spam]';
+  const checkWordsSale = 'sale';
+
+  let check = false;
+  if (
+    splitMessage.includes(checkWordsSpam) ||
+    splitMessage.includes(checkWordsSale)
+  ) {
+    check = true;
+  }
+  return check;
+};
+
+/*
+ * Вызовы функции для проверки работоспособности твоей реализации.
+ */
+console.log(checkForSpam('Latest technology news')); // false
+
+console.log(checkForSpam('JavaScript weekly newsletter')); // false
+
+console.log(checkForSpam('Get best sale offers now!')); // true
+
+console.log(checkForSpam('[SPAM] How to earn fast money?')); // true
+console.log('Задание 5 END');
