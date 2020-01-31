@@ -63,3 +63,6 @@ typings/
 # my file
 class-js/
 my-js/
+
+# vscode
+.vscode

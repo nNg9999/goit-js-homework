@@ -29,5 +29,45 @@ console.log('Задание 7 - дополнительное, выполнять
 isLoginValid только проверяет валидный ли логин и возвращает true или false.
 addLogin добавляет или не добавляет логин в массив. При этом для проверок условия добавления использует результаты вызовов других функций - isLoginUnique и isLoginValid.
 */
+const logins = ['Mango', 'robotGoogles', 'Poly', 'Aj4x1sBozz', 'qwerty123'];
+
+// eslint-disable-next-line func-names
+const isLoginValid = function(login) {
+  const loginLength = login.length;
+  let resultValid;
+
+  if (loginLength >= 4 && loginLength <= 16) {
+    resultValid = true;
+  }
+  return resultValid;
+};
+
+// eslint-disable-next-line func-names
+const isLoginUnique = function(allLogins, login) {
+  const LoginUnique = allLogins.includes(login);
+  return LoginUnique;
+};
+
+// eslint-disable-next-line func-names
+const addLogin = function(allLogins, login) {
+  let message;
+  if (!isLoginValid(login)) {
+    message = 'Ошибка! Логин должен быть от 4 до 16 символов';
+  } else if (isLoginUnique(allLogins, login)) {
+    message = 'Такой логин уже используется!';
+  } else {
+    allLogins.push(login);
+    message = 'Логин успешно добавлен!';
+  }
+  alert(message);
+};
+
+/*
+ * Вызовы функции для проверки работоспособности твоей реализации.
+ */
+console.log(addLogin(logins, 'Ajax')); // 'Логин успешно добавлен!'
+console.log(addLogin(logins, 'robotGoogles')); // 'Такой логин уже используется!'
+console.log(addLogin(logins, 'Zod')); // 'Ошибка! Логин должен быть от 4 до 16 символов'
+console.log(addLogin(logins, 'jqueryisextremelyfast')); // 'Ошибка! Логин должен быть от 4 до 16 символов'
 
 console.log('Задание 7 END');
