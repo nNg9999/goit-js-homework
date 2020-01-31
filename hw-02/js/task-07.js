@@ -34,7 +34,7 @@ const logins = ['Mango', 'robotGoogles', 'Poly', 'Aj4x1sBozz', 'qwerty123'];
 // eslint-disable-next-line func-names
 const isLoginValid = function(login) {
   const loginLength = login.length;
-  let resultValid;
+  let resultValid = false;
 
   if (loginLength >= 4 && loginLength <= 16) {
     resultValid = true;
@@ -51,6 +51,7 @@ const isLoginUnique = function(allLogins, login) {
 // eslint-disable-next-line func-names
 const addLogin = function(allLogins, login) {
   let message;
+  let resultAddLogin = false;
   if (!isLoginValid(login)) {
     message = 'Ошибка! Логин должен быть от 4 до 16 символов';
   } else if (isLoginUnique(allLogins, login)) {
@@ -58,8 +59,10 @@ const addLogin = function(allLogins, login) {
   } else {
     allLogins.push(login);
     message = 'Логин успешно добавлен!';
+    resultAddLogin = true;
   }
   alert(message);
+  return resultAddLogin;
 };
 
 /*
