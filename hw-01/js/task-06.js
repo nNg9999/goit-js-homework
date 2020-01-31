@@ -31,6 +31,7 @@ do {
   if (inputUser === null) {
     message = `Общая сума чисел равна ${total}`;
     alert(message);
+    break;
   }
   inputUser = Number.parseInt(inputUser, 10);
   if (inputUser === Number(inputUser)) {
