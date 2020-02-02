@@ -12,8 +12,21 @@ const products = [
   { name: 'Захват', price: 1200, quantity: 2 },
 ];
 
+// eslint-disable-next-line func-names
 const calculateTotalPrice = function(allProdcuts, productName) {
-  // твой код
+  let values;
+
+  // eslint-disable-next-line no-restricted-syntax
+  for (const product of allProdcuts) {
+    const keys = Object.keys(product);
+    // eslint-disable-next-line no-restricted-syntax
+    for (const key of keys) {
+      if (product[key] === productName) {
+        values = product.price * product.quantity;
+      }
+    }
+  }
+  return values;
 };
 
 /*

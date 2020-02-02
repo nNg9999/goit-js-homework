@@ -17,4 +17,16 @@ const user = {
   premium: true,
 };
 
+user.mood = 'happy';
+user.hobby = 'skydiving';
+user.premium = false;
+
+const keys = Object.keys(user);
+
+for (const key of keys) {
+  console.log(`key: ${key}, value: ${user[key]}`);
+}
+
+// console.log(user);
+
 console.log('Задание 1 END');

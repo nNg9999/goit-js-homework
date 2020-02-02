@@ -7,7 +7,20 @@ console.log('Задание 3');
 */
 
 const findBestEmployee = function(employees) {
-  // твой код
+  let max = 0;
+  let name;
+  const keys = Object.keys(employees);
+
+  for (const key of keys) {
+    if (max < employees[key]) {
+      max = employees[key];
+      name = key;
+    }
+  }
+  return {
+    name,
+    tasksCompleted: max,
+  };
 };
 
 /*
@@ -38,6 +51,5 @@ console.log(
     chelsy: 38,
   }),
 ); // lux
-*/
 
 console.log('Задание 3 END');

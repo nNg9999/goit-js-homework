@@ -7,12 +7,22 @@ console.log('Задание 4');
 */
 
 const countTotalSalary = function(employees) {
-  // твой код
+  let total = 0;
+
+  const values = Object.values(employees);
+
+  for (const value of values) {
+    total += value;
+  }
+  return {
+    Completed: total,
+  };
 };
 
 /*
  * Вызовы функции для проверки работоспособности твоей реализации.
  */
+
 console.log(countTotalSalary({})); // 0
 
 console.log(
