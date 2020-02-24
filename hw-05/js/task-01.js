@@ -6,7 +6,7 @@ console.log('Задание 1');
  */
 
 // eslint-disable-next-line func-names
-const Account = function({ login: login, email: email }) {
+const Account = function({ login, email }) {
   this.login = login;
   this.email = email;
 };

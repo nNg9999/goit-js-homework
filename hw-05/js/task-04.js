@@ -24,30 +24,15 @@ class StringBuilder {
   }
 
   append(str) {
-    const strSplit = this._value.split('');
-    strSplit.push(str);
-    const strSlice = strSplit.slice(0);
-    const strJoin = strSlice.join('');
-    this._value = strJoin;
-    return this._value;
+    this._value = `${this._value}${str}`;
   }
 
   prepend(str) {
-    const strSplit = this._value.split('');
-    strSplit.unshift(str);
-    const strSlice = strSplit.slice(0);
-    const strJoin = strSlice.join('');
-    this._value = strJoin;
-    return this._value;
+    this._value = `${str}${this._value}`;
   }
   pad(str) {
-    const strSplit = this._value.split('');
-    strSplit.push(str);
-    strSplit.unshift(str);
-    const strSlice = strSplit.slice(0);
-    const strJoin = strSlice.join('');
-    this._value = strJoin;
-    return this._value;
+    this.append(str);
+    this.prepend(str);
   }
 }
 
