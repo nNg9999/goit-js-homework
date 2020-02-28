@@ -6,7 +6,7 @@ console.log('Задание 1');
 /**
  * Получить массив имен всех пользователей (поле name).
  */
-const getUserNames = users => users.map(item => item.name);
+const getUserNames = users => users.map(({ name }) => name);
 
 console.log(getUserNames(users));
 // [ 'Moore Hensley', 'Sharlene Bush', 'Ross Vazquez', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony' ]
@@ -28,7 +28,7 @@ console.log('Задание 3');
  * Получить массив имен пользователей по полу (поле gender).
  */
 const getUsersWithGender = (users, gender) =>
-  users.filter(item => item.gender === gender).map(item => item.name);
+  users.filter(item => item.gender === gender).map(({ name }) => name);
 console.log(getUsersWithGender(users, 'male')); // [ 'Moore Hensley', 'Ross Vazquez', 'Carey Barr', 'Blackburn Dotson' ]
 console.log('Задание 3 END');
 
@@ -37,7 +37,7 @@ console.log('Задание 4');
  * Получить массив только неактивных пользователей (поле isActive).
  */
 
-const getInactiveUsers = users => users.filter(item => !item.isActive);
+const getInactiveUsers = users => users.filter(({ isActive }) => !isActive);
 
 console.log(getInactiveUsers(users)); // [объект Moore Hensley, объект Ross Vazquez, объект Blackburn Dotson]
 console.log('Задание 4 END');
@@ -59,9 +59,11 @@ console.log('Задание 6');
  * Получить массив пользователей попадающих в возрастную категорию от min до max лет (поле age).
  */
 
-const getUsersWithAge = (users, min, max) =>
-  users.filter(item => item.age > min && item.age < max);
+// const getUsersWithAge = (users, min, max) =>
+//   users.filter(item => item.age > min && item.age < max);
 
+const getUsersWithAge = (users, min, max) =>
+  users.filter(({ age }) => age >= min && age <= max);
 console.log(getUsersWithAge(users, 20, 30)); // [объект Ross Vazquez, объект Elma Head, объект Carey Barr]
 
 console.log(getUsersWithAge(users, 30, 40));
@@ -74,7 +76,7 @@ console.log('Задание 7');
  */
 
 const calculateTotalBalance = users =>
-  users.reduce((total, item) => total + item.balance, 0);
+  users.reduce((acc, { balance }) => acc + balance, 0);
 
 console.log(calculateTotalBalance(users)); // 20916
 console.log('Задание 7 END');
@@ -107,3 +109,19 @@ const getNamesSortedByFriendsCount = users =>
 console.log(getNamesSortedByFriendsCount(users));
 // [ 'Moore Hensley', 'Sharlene Bush', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony', 'Ross Vazquez' ]
 console.log('Задание 9 END');
+
+console.log('Задание 10');
+/**
+ * Получить массив всех умений всех пользователей (поле skills), при этом не должно быть повторяющихся умений и они должны быть отсортированы в алфавитном порядке.
+ */
+
+const getSortedUniqueSkills = users => {
+  return users
+    .reduce((allSkills, user) => [...allSkills, ...user.skills], [])
+    .filter((elem, index, array) => array.indexOf(elem) === index)
+    .sort();
+};
+
+console.log(getSortedUniqueSkills(users));
+// [ 'adipisicing', 'amet', 'anim', 'commodo', 'culpa', 'elit', 'ex', 'ipsum', 'irure', 'laborum', 'lorem', 'mollit', '
+console.log('Задание 10 END');
