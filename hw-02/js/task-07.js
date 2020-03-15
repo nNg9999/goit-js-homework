@@ -33,36 +33,24 @@ const logins = ['Mango', 'robotGoogles', 'Poly', 'Aj4x1sBozz', 'qwerty123'];
 
 // eslint-disable-next-line func-names
 const isLoginValid = function(login) {
-  const loginLength = login.length;
-  let resultValid = false;
-
-  if (loginLength >= 4 && loginLength <= 16) {
-    resultValid = true;
-  }
-  return resultValid;
+  return login.length >= 4 && login.length <= 16;
 };
 
 // eslint-disable-next-line func-names
 const isLoginUnique = function(allLogins, login) {
-  const LoginUnique = allLogins.includes(login);
-  return LoginUnique;
+  return allLogins.includes(login);
 };
 
 // eslint-disable-next-line func-names
 const addLogin = function(allLogins, login) {
-  let message;
-  let resultAddLogin = false;
   if (!isLoginValid(login)) {
-    message = 'Ошибка! Логин должен быть от 4 до 16 символов';
-  } else if (isLoginUnique(allLogins, login)) {
-    message = 'Такой логин уже используется!';
-  } else {
-    allLogins.push(login);
-    message = 'Логин успешно добавлен!';
-    resultAddLogin = true;
+    return 'Ошибка! Логин должен быть от 4 до 16 символов';
   }
-  alert(message);
-  return resultAddLogin;
+  if (isLoginUnique(allLogins, login)) {
+    return 'Такой логин уже используется!';
+  }
+  allLogins.push(login);
+  return 'Логин успешно добавлен!';
 };
 
 /*

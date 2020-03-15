@@ -21,12 +21,14 @@ user.mood = 'happy';
 user.hobby = 'skydiving';
 user.premium = false;
 
-const keys = Object.keys(user);
+// const keys = Object.keys(user);
+// // eslint-disable-next-line no-restricted-syntax
+// for (const key of keys) {
+//   console.log(`key: ${key}, value: ${user[key]}`);
+// }
 
-for (const key of keys) {
-  console.log(`key: ${key}, value: ${user[key]}`);
-}
-
-// console.log(user);
+Object.entries(user).forEach(([key, value]) => {
+  console.log(`key: ${key}, value: ${value}`);
+});
 
 console.log('Задание 1 END');

@@ -26,6 +26,13 @@ const formatString = function(string) {
   return str;
 };
 
+function formatString(string) {
+  return string.length > 40 ? `${string.slice(0, 39)}...` : string;
+}
+
+const formatString = (string, maxLength = 40) =>
+  string.length > maxLength ? `${string.slice(0, maxLength - 1)}...` : string;
+
 // /*
 //  * Вызовы функции для проверки работоспособности твоей реализации.
 //  */

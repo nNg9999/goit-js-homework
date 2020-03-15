@@ -1,0 +1,35 @@
+#gallery {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: flex-start;
+  justify-content: space-between;
+}
+
+.image {
+  width: 100px;
+  height: auto;
+}
+
+#validation-input {
+  border: 3px solid #bdbdbd;
+  margin-bottom: 20px;
+}
+
+#validation-input.valid {
+  border-color: #4caf50;
+}
+
+#validation-input.invalid {
+  border-color: #f44336;
+}
+
+#font-size-control {
+  display: flex;
+}
+
+#name-input {
+  display: block;
+  margin-bottom: 20px;
+}

@@ -6,21 +6,26 @@ console.log('Задание 3');
 Напиши функцию findBestEmployee(employees), которая принимает объект сотрудников и возвращает имя самого продуктивного (который выполнил больше всех задач). Сотрудники и кол-во выполненых задач содержатся как свойства объекта в формате "имя":"кол-во задач".
 */
 
+// eslint-disable-next-line func-names
 const findBestEmployee = function(employees) {
   let max = 0;
   let name;
-  const keys = Object.keys(employees);
+  // const keys = Object.keys(employees);
 
-  for (const key of keys) {
-    if (max < employees[key]) {
-      max = employees[key];
+  // for (const key of keys) {
+  //   if (max < employees[key]) {
+  //     max = employees[key];
+  //     name = key;
+  //   }
+  // }
+  Object.entries(employees).forEach(([key, value]) => {
+    if (max < value) {
+      max = value;
       name = key;
     }
-  }
-  return {
-    name,
-    tasksCompleted: max,
-  };
+  });
+
+  return name;
 };
 
 /*

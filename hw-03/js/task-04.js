@@ -6,17 +6,20 @@ console.log('Задание 4');
 Напиши функцию countTotalSalary(employees) принимающую объект зарплат. Функция считает общую сумму запрплаты работников и возращает ее. Каждое поле объекта, передаваемого в функцию, имеет вид "имя":"зарплата".
 */
 
+// eslint-disable-next-line func-names
 const countTotalSalary = function(employees) {
   let total = 0;
 
-  const values = Object.values(employees);
+  // const values = Object.values(employees);
 
-  for (const value of values) {
+  // for (const value of values) {
+  //   total += value;
+  // }
+  Object.values(employees).forEach(value => {
     total += value;
-  }
-  return {
-    Completed: total,
-  };
+  });
+
+  return total;
 };
 
 /*
