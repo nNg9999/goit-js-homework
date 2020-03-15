@@ -2,7 +2,7 @@
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
+  flex-direction: column;
   align-content: flex-start;
   justify-content: space-between;
 }
@@ -31,5 +31,10 @@
 
 #name-input {
   display: block;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
+}
+
+#text {
+  display: block;
+  margin-bottom: 50px;
 }
