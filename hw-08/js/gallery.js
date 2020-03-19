@@ -63,12 +63,12 @@ const generateGallery = images =>
 <li class="gallery__item">
   <a
     class="gallery__link"
-    href="${item.original}"
+    href="${item.preview}"
   >
     <img
       class="gallery__image"
-      src="${item.original}"
-      data-source="${item.preview}"
+      src=""
+      data-lazy="${item.original}"
       alt="${item.description}"
     />
   </a>
