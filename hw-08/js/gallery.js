@@ -58,23 +58,31 @@ const refs = {
 
 const generateGallery = images =>
   images.reduce(
-    (acc, item) =>
+    (acc, { preview, original, description }) =>
       (acc += `
 <li class="gallery__item">
   <a
     class="gallery__link"
-    href="${item.preview}"
+    href="${preview}"
   >
     <img
       class="gallery__image"
       src=""
-      data-lazy="${item.original}"
-      alt="${item.description}"
+      data-lazy="${original}"
+      
+      alt="${description}"
     />
   </a>
 </li>`),
     '',
   );
+
+// const newId = () => (~~(Math.random() * 1e8)).toString(16);
+const numbers = [];
+for (let i = 0; i < images.length; i += 1) {
+  // numbers.push(`${i}`);
+  images[i].index = numbers.push(`${i}`);
+}
 
 refs.galleryList.insertAdjacentHTML('beforeend', generateGallery(images));
 
