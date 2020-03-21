@@ -11,12 +11,22 @@ console.log('Задание 5');
  
 */
 
-const input = document.querySelector('#name-input');
-const output = document.querySelector('#name-output');
+const refs = {
+  userInput: document.querySelector('#name-input'),
+  output: document.querySelector('#name-output'),
+};
 
-function handleInputChange(event) {
-  output.textContent = event.currentTarget.value;
-}
-input.addEventListener('input', handleInputChange);
+refs.userInput.addEventListener('input', () => {
+  refs.output.textContent = refs.userInput.value || 'незнакомец';
+});
+
+// ===============================================
+// const input = document.querySelector('#name-input');
+// const output = document.querySelector('#name-output');
+
+// function handleInputChange(event) {
+//   output.textContent = event.currentTarget.value || 'незнакомец';
+// }
+// input.addEventListener('input', handleInputChange);
 
 console.log('END Задание 5');

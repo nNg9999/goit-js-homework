@@ -22,13 +22,4 @@ categories.forEach(element => {
 });
 console.log('END Задание 1');
 
-// для другого через map  потім один раз append
-// ingradients.appends(...arr)
 
-// вставляэмо url
-// задание 4 робыли
-// 6 blur  через клас лыст
-// 7
-
-// через creet Element
-// innerHTML='' почистити весь html

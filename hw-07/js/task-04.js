@@ -14,37 +14,63 @@ console.log('Задание 4');
 </div>
  */
 
-const Counter = function({ initialValue = 0, step = 1 }) {
-  this.value = initialValue;
-  this.step = step;
+// const Counter = function({ initialValue = 0, step = 1 }) {
+//   this.value = initialValue;
+//   this.step = step;
+// };
+
+// Counter.prototype.increment = function() {
+//   this.value += this.step;
+// };
+
+// Counter.prototype.decrement = function() {
+//   this.value -= this.step;
+// };
+
+// const counter = new Counter({ initialValue: 0, step: 1 });
+
+// const counterValue = document.querySelector('#value');
+// const incrementBtn = document.querySelector('button[data-action="increment"]');
+// const decrementBtn = document.querySelector('button[data-action="decrement"]');
+
+// const updateCounterValue = () => {
+//   counterValue.textContent = counter.value;
+// };
+
+// incrementBtn.addEventListener('click', () => {
+//   counter.increment();
+//   updateCounterValue();
+// });
+
+// decrementBtn.addEventListener('click', () => {
+//   counter.decrement();
+//   updateCounterValue();
+// });
+
+// console.log('END Задание 4');
+
+// ===============================
+
+const refs = {
+  counter: document.querySelector('#counter'),
+  value: document.querySelector('#value'),
 };
 
-Counter.prototype.increment = function() {
-  this.value += this.step;
+const actions = {
+  state: {
+    value: 0,
+  },
+  decrement() {
+    this.state.value -= 1;
+  },
+  increment() {
+    this.state.value += 1;
+  },
 };
 
-Counter.prototype.decrement = function() {
-  this.value -= this.step;
+const changeValue = ({ target }) => {
+  actions[target.dataset.action]();
+  refs.value.textContent = actions.state.value;
 };
 
-const counter = new Counter({ initialValue: 0, step: 1 });
-
-const counterValue = document.querySelector('#value');
-const incrementBtn = document.querySelector('button[data-action="increment"]');
-const decrementBtn = document.querySelector('button[data-action="decrement"]');
-
-const updateCounterValue = () => {
-  counterValue.textContent = counter.value;
-};
-
-incrementBtn.addEventListener('click', () => {
-  counter.increment();
-  updateCounterValue();
-});
-
-decrementBtn.addEventListener('click', () => {
-  counter.decrement();
-  updateCounterValue();
-});
-
-console.log('END Задание 4');
+refs.counter.addEventListener('click', changeValue);

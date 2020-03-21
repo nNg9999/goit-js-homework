@@ -11,7 +11,7 @@ const span = document.getElementById('text');
 
 input.addEventListener('input', handleInputRange);
 
-function handleInputRange(event) {
-  span.style.fontSize = event.currentTarget.value + 'px';
+function handleInputRange({ target }) {
+  span.style.fontSize = target.value + 'px';
 }
 console.log('END Задание 7');

@@ -22,28 +22,49 @@ console.log('Задание 8');
 <div id="boxes"></div>
 
  */
+const refs = {
+  render: document.querySelector('[data-action="render"]'),
+  destroy: document.querySelector('[data-action="destroy"]'),
+  boxes: document.getElementById('boxes'),
+};
 
-const render = document.querySelector('[data-action="render"]');
-const destroy = document.querySelector('[data-action="destroy"]');
-const boxes = document.getElementById('boxes');
-render.addEventListener('click', getAmount);
-destroy.addEventListener('click', destroyBoxes);
+refs.render.addEventListener('click', getAmount);
+refs.destroy.addEventListener('click', destroyBoxes);
 
 function getAmount() {
   const amount = +document.querySelector('#controls input').value;
   createBoxes(amount);
 }
 
-function createBoxes(amount) {
-  const basicSize = 50;
-  const fragment = document.createDocumentFragment();
-  for (let i = 0; i < amount; i += 1) {
-    const size = basicSize + i * 20;
-    const div = document.createElement('div');
-    div.style.cssText = `width: ${size}px; height: ${size}px; background-color: rgba( ${random()} , ${random()} , ${random()} )`;
-    fragment.appendChild(div);
-  }
-  boxes.appendChild(fragment);
+// function createBoxes(amount) {
+//   const basicSize = 50;
+//   const fragment = document.createDocumentFragment();
+//   for (let i = 0; i < amount; i += 1) {
+//     const size = basicSize + i * 20;
+//     const div = document.createElement('div');
+//     div.style.cssText = `width: ${size}px; height: ${size}px;
+//     background-color: rgb(${random()} , ${random()} , ${random()});`;
+//     fragment.appendChild(div);
+//   }
+//   boxes.appendChild(fragment);
+// }
+
+function createBoxes(n) {
+  const initSize = 30;
+  const step = 10;
+  const html = Array(n)
+    .fill('')
+    .map(
+      (e, i) => `<div id="boxes">
+   <div style =" width: ${initSize + i * step}px; height: ${initSize +
+        i * step}px;
+    background-color: rgb(${random()} , ${random()} , ${random()});">
+   </div> 
+   </div>`,
+    )
+    .join('\n');
+
+  refs.boxes.insertAdjacentHTML('afterbegin', html);
 }
 
 function random() {
@@ -51,7 +72,7 @@ function random() {
 }
 
 function destroyBoxes() {
-  boxes.innerHTML = '';
+  refs.boxes.innerHTML = '';
 }
 
 console.log('END Задание 8');
