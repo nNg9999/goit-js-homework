@@ -1,12 +1,14 @@
+const images = document.querySelectorAll('.card__image');
+
 const lazyLoad = target => {
   const options = {
-    rootMargin: '50px',
-    threshold: 0.01,
+    rootMargin: '50px 0px',
+    threshold: 0.1,
   };
 
   const io = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
-      console.log(entry);
+      // console.log(entry);
 
       if (entry.isIntersecting) {
         const img = entry.target;
@@ -22,9 +24,6 @@ const lazyLoad = target => {
 
   io.observe(target);
 };
-
-const images = document.querySelectorAll('.card__image');
-console.log(images);
 
 images.forEach(image => {
   lazyLoad(image);
